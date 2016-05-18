@@ -41,6 +41,9 @@ app
 # JETBRAIN
 .idea
 
+# Semantic bundle files
+public/static/semantic/dist/
+
 src/config/*
 !src/config/index.js
 !src/config/default.js.idea
