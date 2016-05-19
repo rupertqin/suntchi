@@ -1,0 +1,18 @@
+//@import './head';
+
+$pass: green !default;
+$fail: red;
+$width: 900px;
+$number: 5;
+$headerHeight: 54px;
+
+.ui.menu {
+	position: relative;
+	z-index: 999;
+	margin: 0;
+	
+}
+.ui.top.sidebar {
+	position: absolute;
+	top: $headerHeight!important;
+}
