@@ -15,8 +15,6 @@ const app = new Koa()
 const router = Router()
 const bodyparser = Bodyparser()
 
-const index = require('./routes/index')
-const users = require('./routes/users')
 
 // middlewares
 app.use(convert(bodyparser))
@@ -46,8 +44,13 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+const index = require('./routes/index')
+const users = require('./routes/users')
+const admin = require('./routes/admin')
+
 router.use('', index.routes(), index.allowedMethods())
 router.use('/users', users.routes(), users.allowedMethods())
+router.use('/admin', admin.routes(), admin.allowedMethods())
 
 // response
 app.use(router.routes(), router.allowedMethods())

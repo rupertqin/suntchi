@@ -6,8 +6,9 @@ const path = require('path')
 const postcss = require('postcss');
 const precss = require('precss')
 const postcssScss = require('postcss-scss')
+const atImport = require("postcss-import")
 const autoprefixer = require('autoprefixer')({ browsers: ['> 5%', 'ie 6-10', 'Firefox >= 20'],flexbox:true  })
-
+const postImport = require('postcss-partial-import')({extension: 'scss' })
 
 
 var cp = require('child_process')
@@ -22,7 +23,6 @@ files.forEach(function (file) {
   checkChange(file)
 })
 
-var appIns = cp.fork(path.join(__dirname, '../app'))
 console.log('>>> [DEV]: ♪ App Started'.green)
 
 function checkChange (file) {
@@ -30,8 +30,6 @@ function checkChange (file) {
   var mTime = fs.statSync(path.join(__dirname, '../scss', file)).mtime.getTime()
   if (prevMTime !== mTime) {
     compileScss()
-    appIns.kill('SIGTERM')
-    appIns = cp.fork(path.join(__dirname, '../app'))
     console.log('>>> [DEV]: ♬ App Restarted...'.red)
     fileMTimeMap[file] = mTime
   }
@@ -78,7 +76,6 @@ function getFilesFromDir (dir, prefix, filter) {
 }
 
 process.on('SIGINT', function (e) {
-  appIns.kill('SIGTERM')
   console.log('>>> [DEV]: ♫ App Quit'.red)
   process.exit(0)
 })
@@ -86,15 +83,20 @@ process.on('SIGINT', function (e) {
 function compileScss () {
     const inputCSS = fs.readFileSync(path.join(__dirname, '../scss/common.scss'),  'utf8');
     
-    postcss([ autoprefixer,  precss])
+    postcss([ postImport, autoprefixer,  precss ])
+        // .warn(warning => {
+        //     console.log(warning.toString())
+        // })
+        // .use(atImport())
         .process(inputCSS, { 
             parser: postcssScss, 
             map: { inline: false },
             from: '../scss/common.scss', 
             to: '../public/static/dist/css/common.css' })
-        .then(function (result) {
+        
+        .then(result => {
             // result.css = result.css.replace(/\/\*[^\b\nb]+\*\/|\n|\t|\s+/g, '')
-            // console.log('==== result: ', result)
+            console.log('==== result: ', result)
             fs.writeFileSync(path.join(__dirname, '../public/static/dist/css/common.css'), result.css)
             if ( result.map ) fs.writeFileSync(path.join(__dirname, '../public/static/dist/css/common.css.map'), result.map);
         });
