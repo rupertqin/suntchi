@@ -1,5 +1,5 @@
 {
-  "name": "Suntchi",
+  "name": "suntchi",
   "version": "0.1.1",
   "author": "Qin",
   "scripts": {
@@ -10,7 +10,9 @@
     "compile": "babel src/ --out-dir app/ --retain-lines --source-maps",
     "clean": "rm -rf app/",
     "test": "mocha -u bdd --compilers js:babel-core/register",
-    "dev": "npm start"
+    "dev": "npm start & npm run fe & npm run browserSync",
+    "fe": "webpack --watch",
+    "browserSync": "browser-sync start --proxy 'localhost:3003' --no-open --reload-delay 300 --files 'src/' 'public/' "
   },
   "dependencies": {
     "co": "^4.6.0",

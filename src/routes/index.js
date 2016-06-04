@@ -1,9 +1,12 @@
 import Router from 'koa-router'
-import {index, about} from '../controllers/indexCtrl'
 
 const router = Router()
+const top = require('./top')
+const users = require('./users')
+const admin = require('./admin')
 
-router.get('/', index)
-router.get('/about', about)
+router.use('', top.routes(), top.allowedMethods())
+router.use('/users', users.routes(), users.allowedMethods())
+router.use('/admin', admin.routes(), admin.allowedMethods())
 
 export default router

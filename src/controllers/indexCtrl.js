@@ -15,6 +15,6 @@ async function about (ctx, next) {
 }
 
 
-export {
+export default {
   index, about
 }
