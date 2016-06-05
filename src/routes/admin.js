@@ -1,8 +1,8 @@
 import Router from 'koa-router'
-import {login, about} from '../controllers/adminCtrl'
+import adminCtrl from '../controllers/adminCtrl'
 
 const router = Router()
 
-router.get('/', login)
+router.get('/login', adminCtrl.login)
 
 export default router

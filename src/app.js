@@ -10,6 +10,7 @@ import koaStatic from 'koa-static-plus'
 import koaOnError from 'koa-onerror'
 import config from './config'
 import router from './routes'
+import './models'
 
 const app = new Koa()
 
