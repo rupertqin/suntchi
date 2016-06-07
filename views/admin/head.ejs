@@ -18,6 +18,9 @@
     <a class="item">Features</a>
     <a class="item">Testimonials</a>
     <a class="item">Sign-in</a>
+    <% if (isLogin) { %>
+      <a class="item" href="/admin/logout">Logout</a>
+    <% } %>
   </div>
   
   <div class="ui top vertical inverted menu sidebar">

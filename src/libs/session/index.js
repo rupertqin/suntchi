@@ -1,6 +1,6 @@
 var sessions = {}
 var key = 'SID'
-var EXPIRES = 1 * 6 * 1000
+var EXPIRES = 1 * 60 * 1000
 
 
 

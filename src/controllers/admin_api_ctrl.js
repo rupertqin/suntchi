@@ -8,13 +8,15 @@ export default {
         const title = 'koa2 title'
         const body = ctx.request.body
         var user = await User.find({name: body.name})
-        if (body.password !== user.password) {
-            ctx.cookies.set('SID', 'pass')
+        if (body.password == user.password) {
             Util.resJson(400, ctx.response, 'error!')
             
         } else {
-            ctx.cookies.set('SID', user.id)
-            Util.resJson(410, ctx.response, ctx.request.body)
+            // const sid = ctx.cookies.get('SID')
+            const sid = ctx.req.session.id
+            var session = Session.get(sid)
+            session.isAdmin = true
+            ctx.redirect('/admin/dashboard')
         }
         // ctx.req.session.user = user
         

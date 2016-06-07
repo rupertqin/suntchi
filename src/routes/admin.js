@@ -17,6 +17,7 @@ router.use((ctx, next)=> {
     })
 })
 router.get('/login', adminCtrl.login)
+router.get('/logout', adminCtrl.logout)
 router.get('/dashboard', adminCtrl.dashboard)
 
 export default router
