@@ -4,28 +4,35 @@ import path from 'path'
 import views from 'koa-views'
 import convert from 'koa-convert'
 import json from 'koa-json'
-import Bodyparser from 'koa-bodyparser'
+import bodyparser from 'koa-bodyparser'
 import logger from 'koa-logger'
 import koaStatic from 'koa-static-plus'
 import koaOnError from 'koa-onerror'
 import config from './config'
 import router from './routes'
+import Util from './util'
 import './models'
+import Session from './libs/session'
+
+global.Util = Util
 
 const app = new Koa()
 
-const bodyparser = Bodyparser()
+
+// overrite app use
+const _use = app.use
+app.use = x => _use.call(app, convert(x))
 
 
 // middlewares
-app.use(convert(bodyparser))
-app.use(convert(json()))
-app.use(convert(logger()))
+app.use(bodyparser())
+app.use(json())
+app.use(logger())
 
 // static
-app.use(convert(koaStatic(path.join(__dirname, '../public'), {
+app.use(koaStatic(path.join(__dirname, '../public'), {
   pathPrefix: ''
-})))
+}))
 
 // views
 app.use(views(path.join(__dirname, '../views'), {
@@ -46,6 +53,15 @@ app.use(async (ctx, next) => {
 })
 
 
+
+function modernMiddleware(ctx, next) {
+  console.log('====== modernMiddleware ctx: ', ctx.cookies.get('SID'),  Object.keys(ctx.req.headers))
+  return Sess(ctx, next)
+  
+  
+}
+
+app.use(Session)
 
 // response
 app.use(router.routes(), router.allowedMethods())
