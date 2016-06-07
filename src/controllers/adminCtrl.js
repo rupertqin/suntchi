@@ -2,7 +2,7 @@ import url from 'url'
 import User from '../models/user'
 
 export default {
-    login: async function (ctx, next) {
+    login: async (ctx, next)=> {
         const title = 'koa2 title'
         var users = await User.find({})
         console.log('====== ctx: ', ctx.req.session)
@@ -11,11 +11,21 @@ export default {
         })
     },
 
-    about: async function about(ctx, next) {
+    dashboard: async (ctx, next)=> {
         const title = 'koa2 title'
 
-        await ctx.render('about', {
-            title
+        var users = await User.find({})
+        await ctx.render('admin/dashboard', {
+            title, users
+        })
+    },
+    
+    checkLogin: async function about(ctx, next) {
+        const title = 'koa2 title'
+
+        var users = await User.find({})
+        await ctx.render('admin/dashboard', {
+            title, users
         })
     }
 }

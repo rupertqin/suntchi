@@ -15,6 +15,8 @@ import './models'
 import Session from './libs/session'
 
 global.Util = Util
+global.Session = Session
+
 
 const app = new Koa()
 
@@ -61,10 +63,11 @@ function modernMiddleware(ctx, next) {
   
 }
 
-app.use(Session)
+app.use(Session.session)
 
 // response
 app.use(router.routes(), router.allowedMethods())
+
 
 // 404
 app.use(async (ctx) => {

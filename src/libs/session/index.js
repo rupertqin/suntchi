@@ -1,24 +1,30 @@
-class Sess {
-    constructor() {
-        this.sessions = {}
-        this.key = 'SID'
-        this.EXPIRES = 10 * 60 * 1000
+var sessions = {}
+var key = 'SID'
+var EXPIRES = 1 * 6 * 1000
+
+
+
+class Session {
+    constructor(ctx, next) {
         return this.init.bind(this)
+        
     }
     
     init(ctx, next) {
+        console.log('====== modernMiddleware ctx: ', ctx.cookies.get('SID'),  Object.keys(ctx.req.headers))
+        console.log('====== modernMiddleware sessions: ', sessions)
         ctx.req.cookies = this.parseCookie(ctx.req.headers.cookie)
-        var id = ctx.cookies.get(this.key)
+        var id = ctx.cookies.get(key)
         if (!id) {
             ctx.req.session = this.generate()
         } else {
-            var session = this.sessions[id]
+            var session = sessions[id]
             if (session) {
                 if (session.cookie.expire > (new Date()).getTime()) {
-                    session.cookie.expire = (new Date()).getTime() + this.EXPIRES
+                    session.cookie.expire = (new Date()).getTime() + EXPIRES
                     ctx.req.session = session
                 } else {
-                    delete this.sessions[id]
+                    delete sessions[id]
                     ctx.req.session = this.generate()
                 }
             } else {
@@ -26,9 +32,9 @@ class Sess {
             }
         }
         
-        // var sessionStr = this.serialize('Set-Cookie',  this.key + '=' + ctx.req.session.id)
+        // var sessionStr = this.serialize('Set-Cookie',  key + '=' + ctx.req.session.id)
         // cookies = Array.isArray(cookies) ? cookies.concat(session) : [cookies, session]
-        ctx.cookies.set(this.key, ctx.req.session.id, {path: '/admin'})
+        ctx.cookies.set(key, ctx.req.session.id, {path: '/admin'})
         ctx.response.set('Cache-Control', 'no-cache');
          
         return next().then(() => {
@@ -40,12 +46,12 @@ class Sess {
         let session = {}
         session.id = (new Date()).getTime() + Math.random()
         session.cookie = {
-            expire: (new Date()).getTime() + this.EXPIRES
+            expire: (new Date()).getTime() + EXPIRES
         }
         if (data && typeof data === 'object') {
             Object.assign(session, data)
         }
-        this.sessions[session.id] = session
+        sessions[session.id] = session
         return session
     }
     
@@ -96,6 +102,22 @@ class Sess {
         
         return pairs.join('; ')
     }
+    
+    
 }
 
-export default new Sess()
+function getAll() {
+    return sessions
+}
+
+function get(id) {
+    return sessions[id]
+}
+
+var session = new Session()
+
+
+
+export default {
+    session, getAll, get
+}
