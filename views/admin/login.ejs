@@ -1,34 +1,77 @@
-<%- include head %>
-
-    <%= users[0] %>
-    <%= title %>
-    <div class="ui middle aligned center aligned grid">
-        <div class="column">
-            <h2 class="ui teal image header">
-            <div class="content">
-                Log-in to your account
-            </div>
-            </h2>
-            <form class="ui large form" method="POST" action="/admin/login">
-                <div class="ui stacked segment">
-                    <div class="field">
-                    <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input type="text" name="name" placeholder="User name">
-                    </div>
-                    </div>
-                    <div class="field">
-                    <div class="ui left icon input">
-                        <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password">
-                    </div>
-                    </div>
-                    <div class="ui fluid large teal submit button">Login</div>
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %> head</title>
+<link rel="stylesheet" type="text/css" href="/static/semantic/dist/semantic.min.css">
+<script src="/static/jquery-2.2.3.min.js"></script>
+<script src="/static/semantic/dist/semantic.min.js"></script>
+<link rel='stylesheet' href='/static/dist/admin.css' />
+<link rel='stylesheet' href='/static/stylesheets/style.css' />
+</head>
+<body id="login-page">
+<div class="ui grid">
+    <div class="four wide column">
+        <div class="ui pointing vertical menu">
+            <a class="item">
+                Site Title
+            </a>
+            <div class="item">
+                <b>Grouped Section</b>
+                <div class="menu">
+                <a class="item">Subsection 1</a>
+                <a class="active item">Subsection 1</a>
+                <a class="item">Subsection 1</a>
                 </div>
-
-                <div class="ui error message"></div>
-
-            </form>
+            </div>
+            <div class="ui dropdown item">
+                Dropdown <i class="dropdown icon"></i>
+                <div class="menu">
+                <div class="item">Choice 1</div>
+                <div class="item">Choice 2</div>
+                <div class="item">Choice 3</div>
+                </div>
+            </div>
         </div>
     </div>
-<%- include foot %>
+    <div class="twelve wide column">
+    
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+                <div class="content">
+                    Log-in to your account
+                </div>
+                </h2>
+                <form class="ui large form" method="POST" action="/admin/login">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="name" placeholder="User name">
+                        </div>
+                        </div>
+                        <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        </div>
+                        <div class="ui fluid large teal submit button">Login</div>
+                    </div>
+
+                    <div class="ui error message"></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src='/static/dist/admin.bundle.js'></script>
+
+
+</body>
+</html>

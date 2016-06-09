@@ -1,3 +1,11 @@
-.column {
-    max-width: 450px;
+#login-page {
+    .column {
+        max-width: 450px;
+    }
+}
+
+#admin-page {
+    .ui.vertical.menu {
+        height: 100vh;
+    }
 }

@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %> head</title>
-    <link rel="stylesheet" type="text/css" href="/static/semantic/dist/semantic.min.css">
-    <script src="/static/jquery-2.2.3.min.js"></script>
-    <script src="/static/semantic/dist/semantic.min.js"></script>
-    <link rel='stylesheet' href='/static/dist/admin.css' />
-    <link rel='stylesheet' href='/static/stylesheets/style.css' />
-    
-    
-  </head>
-  <body class="">
-  <div class="ui top menu">
-    <div class="item">
-      <img src="/static/img/logo.png">
+<head>
+<title><%= title %> head</title>
+<link rel="stylesheet" type="text/css" href="/static/semantic/dist/semantic.min.css">
+<script src="/static/jquery-2.2.3.min.js"></script>
+<script src="/static/semantic/dist/semantic.min.js"></script>
+<link rel='stylesheet' href='/static/dist/admin.css' />
+<link rel='stylesheet' href='/static/stylesheets/style.css' />
+
+</head>
+
+<body id="admin-page">
+<div class="ui grid">
+    <div class="three wide column">
+        <div class="ui inverted vertical menu">
+            <a class="item">
+                Suntchi 管理后台
+            </a>
+            <div class="item">
+                <b>Grouped Section</b>
+                <div class="menu">
+                <a class="item">Subsection 1</a>
+                <a class="active item">Subsection 1</a>
+                <a class="item">Subsection 1</a>
+                </div>
+            </div>
+            <div class="ui dropdown item">
+                Dropdown <i class="dropdown icon"></i>
+                <div class="menu">
+                <div class="item">Choice 1</div>
+                <div class="item">Choice 2</div>
+                <div class="item">Choice 3</div>
+                </div>
+            </div>
+
+            <a class="item" href="/admin/logout">Logout</a>
+        </div>
     </div>
-    <a class="item">Features</a>
-    <a class="item">Testimonials</a>
-    <a class="item">Sign-in</a>
-    <% if (isLogin) { %>
-      <a class="item" href="/admin/logout">Logout</a>
-    <% } %>
-  </div>
-  
-  <div class="ui top vertical inverted menu sidebar">
-    <a class="item">
-      Item 1
-    </a>
-    <a class="item">
-      Item 2
-    </a>
-    <a class="item">
-      Item 3
-    </a>
-  </div>
-  
-  <div class="pusher">
+    <div class="thirteen wide column">
   
   
