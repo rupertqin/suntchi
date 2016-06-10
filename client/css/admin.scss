@@ -9,3 +9,7 @@
         height: 100vh;
     }
 }
+
+.fr-box > div[style^='position: absolute; bottom: 0px; left: 0px;'] {
+    display: none;
+}

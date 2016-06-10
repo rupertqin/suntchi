@@ -16,8 +16,11 @@ router.use((ctx, next)=> {
         // after 
     })
 })
+
+
 router.get('/login', adminCtrl.login)
 router.get('/logout', adminCtrl.logout)
 router.get('/dashboard', adminCtrl.dashboard)
+router.get('/add-article', adminCtrl.addArticle)
 
 export default router

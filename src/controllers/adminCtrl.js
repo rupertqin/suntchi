@@ -29,12 +29,12 @@ export default {
         })
     },
     
-    checkLogin: async function about(ctx, next) {
+    addArticle: async function(ctx, next) {
         const title = 'koa2 title'
 
         var users = await User.find({})
-        await ctx.render('admin/dashboard', {
-            title, users
+        await ctx.render('admin/add_article', {
+            title, users, isLogin: ctx.req.session.isAdmin
         })
     }
     
