@@ -1,4 +1,3 @@
-// import $ from 'jquery'
 import 'semantic-ui/dist/semantic'
 
 $('.ui.form')

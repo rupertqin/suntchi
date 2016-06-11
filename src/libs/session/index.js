@@ -34,7 +34,7 @@ class Session {
         
         // var sessionStr = this.serialize('Set-Cookie',  key + '=' + ctx.req.session.id)
         // cookies = Array.isArray(cookies) ? cookies.concat(session) : [cookies, session]
-        ctx.cookies.set(key, ctx.req.session.id, {path: '/admin'})
+        ctx.cookies.set(key, ctx.req.session.id, {path: '/'})
         ctx.response.set('Cache-Control', 'no-cache');
          
         return next().then(() => {
