@@ -17,4 +17,19 @@
         <div> <a href="" style="background-image: url(/static/img/slide_2.jpg)"></a> </div>
         <div> <a href="" style="background-image: url(/static/img/slide_3.jpg)"></a> </div>
     </div>
+    
+    <h2 class="ui center aligned header">
+        客户
+    </h2>
+    <div class="ui center aligned grid container module-user">
+        <div class="computer only row">
+            <div class="column"></div>
+        </div>
+        <% for (i of new Array(16)) { %>
+            <div class="six wide tablet two wide computer column">
+                <img class="ui avatar image" src="/static/img/logo.png">
+            </div>
+        <% } %>
+    </div>
+    
 <%- include foot %>

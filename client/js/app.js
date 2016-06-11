@@ -18,24 +18,23 @@ function responseMenu() {
 
 // responseMenu()
 
-// $menuSidebar
-//     .sidebar({
-//         transition       : 'overlay',
-//         mobileTransition : 'uncover'
-//     })
-//     // .sidebar('attach events', '.toggle')
-//     .sidebar('toggle')
+$menuSidebar
+    .sidebar({
+        transition       : 'overlay',
+        mobileTransition : 'uncover'
+    })
+    .sidebar('attach events', '.toggle')
 // $( window ).resize(responseMenu);
     
-$('.toggle').on('click', ()=> {
-    $menuSidebar
-        .sidebar({
-            transition       : 'overlay',
-            mobileTransition : 'uncover'
-        })
-        .sidebar('attach events', '.toggle')
-        .sidebar('toggle')
-})
+// $('.toggle').on('click', ()=> {
+//     $menuSidebar
+//         .sidebar({
+//             transition       : 'overlay',
+//             mobileTransition : 'uncover'
+//         })
+//         .sidebar('attach events', '.toggle')
+//         .sidebar('toggle')
+// })
 
 $('.slider').slick({
     dots: true,
