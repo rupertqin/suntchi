@@ -38,6 +38,7 @@ $menuSidebar
 
 $('.slider').slick({
     dots: true,
+    autoplay: true,
     infinite: true,
     speed: 500,
     arrows: false,

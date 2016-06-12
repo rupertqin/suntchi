@@ -64,6 +64,7 @@ $headerHeight: 54px;
 			overflow-y: auto;
 			> .slick-slider {
 				height: 100%;
+				padding: 0;
 				> .slick-list {
 					height: 100%;
 					> .slick-track {
@@ -71,10 +72,41 @@ $headerHeight: 54px;
 					}
 				}
 				&.slick-dotted {
-					margin-bottom: 0;
 				}
 				.slick-dots {
 					bottom: 30%;
+				}
+			}
+		}
+	}
+	
+	section {
+		margin-bottom: 2em;
+		padding: 1em 0;
+		&.user {
+			.column {
+				overflow: hidden;
+				.ui.image {
+					width: 8vw;
+					height: 8vw;
+					max-width: 6em;
+					max-height: 6em;
+					min-width: 2em;
+					min-height: 2em;
+					margin: 0;
+					display: inline-block;
+				}
+			}
+		}
+		&.services {
+			background: #eee;
+			padding: 3em 0;
+			.column {
+				overflow: hidden;
+				.ui.image {
+					width: 8em;
+					height: 8em;
+					display: inline-block;
 				}
 			}
 		}
@@ -86,15 +118,7 @@ $headerHeight: 54px;
 	// margin: 0 auto;
 }
 
-.module-user {
-	.column {
-		overflow: hidden;
-		.ui.avatar.image {
-			width: 6em;
-			height: 6em;
-		}
-	}
-}
+
 
 html.ios {
 	overflow-x: visible!important;

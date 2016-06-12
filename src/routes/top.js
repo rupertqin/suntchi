@@ -1,12 +1,10 @@
 import Router from 'koa-router'
-import {index, about} from '../controllers/indexCtrl'
+import topCtrl from '../controllers/topCtrl'
 
 const router = Router()
 
-router.get('/', index)
-router.get('/about', about)
-
-
+router.get('/', topCtrl.index)
+router.get('/about', topCtrl.about)
 
 
 export default router
