@@ -1,3 +1,14 @@
 .ui.menu .item.toggle{
     display: none;
 }
+html body .hide-pc {
+    display: none;
+}
+
+.index-page, .about-page {
+    section {
+        .services {
+            padding: 3em 0;
+        }
+    }
+}

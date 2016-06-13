@@ -1,9 +1,9 @@
 @import 'include/head';
 
-@media only screen and (min-width: 706px) {
+@media only screen and (min-width: 990px) {
 	@import 'include/destop';
 }
-@media only screen and (max-width: 706px) {
+@media only screen and (max-width: 990px) {
 	@import 'include/mobile';
 }
 
@@ -100,12 +100,15 @@ $headerHeight: 54px;
 		}
 		&.services {
 			background: #eee;
-			padding: 3em 0;
 			.column {
 				overflow: hidden;
 				.ui.image {
-					width: 8em;
-					height: 8em;
+					width: 12vw;
+					height: 12vw;
+					max-width: 10em;
+					max-height: 10em;
+					min-width: 4em;
+					min-height: 4em;
 					display: inline-block;
 				}
 			}

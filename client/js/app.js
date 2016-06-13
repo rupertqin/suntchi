@@ -23,7 +23,7 @@ $menuSidebar
         transition       : 'overlay',
         mobileTransition : 'uncover'
     })
-    .sidebar('attach events', '.toggle')
+    .sidebar('attach events', '.ui.menu .toggle')
 // $( window ).resize(responseMenu);
     
 // $('.toggle').on('click', ()=> {
@@ -45,6 +45,16 @@ $('.slider').slick({
     cssEase: 'linear'
 });
 
+$('section.user, section.services').accordion({
+    selector: {
+        title: '.hd',
+        trigger: '.hd',
+        content: '.container'
+    },
+    className: {
+        active: 'active'
+    }
+});
 
 class app {
     asdfs() {

@@ -1,3 +1,63 @@
 .ui.menu:not(.vertical) > a.item{
     display: none;
 }
+html body .hide-hd {
+    display: none;
+}
+.index-page section, .about-page section {
+    padding: 0;
+    .hd {
+        position: relative;
+        &.active {
+            .icon.plus {
+                display: none;
+            }
+            .icon.minus {
+                display: inline-block;
+            }
+        }
+        .toggle {
+            display: block;
+            height: 64px;
+            line-height: 64px;
+            background: #92b5c7;
+            color: white;
+            padding: 0 16px;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,.35);
+        }
+        .icon {
+            position: absolute;
+            color: white;
+            font-size: 22px;
+            height: 18px;
+            width: 18px;
+            right: 16px;
+            top: 50%;
+            margin-top: -9px;
+            transition: all .2s;
+            &.minus {
+                display: none;
+            }
+            &.plus {
+                display: inline-block;
+            }
+        }
+    }
+    .ui.container {
+        display: none;
+        // max-height: 0;
+        // overflow: hidden;
+        // opacity: 0;
+        // transition: all .2s;
+        &.active {
+            display: flex;
+            // opacity: 1;
+            // margin-top: 0;
+            // padding-top: 10px;
+            // padding-bottom: 16px;
+            // transform: translate(0, 0);
+            // max-height: 1200px;
+        }
+    }
+}
