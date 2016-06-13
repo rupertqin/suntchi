@@ -36,6 +36,14 @@ export default {
         await ctx.render('admin/add_article', {
             title, users, isLogin: ctx.req.session.isAdmin
         })
+    },
+
+    navigator: async function(ctx, next) {
+        const title = 'navigator'
+        const users = await User.find({})
+        await ctx.render('admin/navigator', {
+            title, users, isLogin: ctx.req.session.isAdmin
+        })
     }
     
 }

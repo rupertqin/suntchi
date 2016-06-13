@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 const User = mongoose.model('User');
 
 
@@ -9,7 +9,7 @@ export default {
         const body = ctx.request.body
         var user = await User.find({name: body.name})
         if (body.password == user.password) {
-            Util.resJson(400, ctx.response, 'error!')
+            Util.resJson(ctx.response, 400, 'error!')
             
         } else {
             // const sid = ctx.cookies.get('SID')
