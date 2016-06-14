@@ -1,8 +1,8 @@
 import Router from 'koa-router'
-import navigator from './navigator'
+import info from './info'
 
 const router = Router()
 
-router.use('', navigator.routes(), navigator.allowedMethods())
+router.use('', info.routes(), info.allowedMethods())
 
 export default router

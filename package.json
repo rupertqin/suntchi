@@ -64,7 +64,9 @@
     "should": "^8.3.0",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.12.4",
+    "superagent": "^2.0.0",
     "supertest": "^1.2.0",
+    "vue": "^1.0.24",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0"
   }

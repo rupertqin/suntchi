@@ -9,7 +9,7 @@ export default {
         const body = ctx.request.body
         var user = await User.find({name: body.name})
         if (body.password == user.password) {
-            Util.resJson(ctx.response, 400, 'error!')
+            Util.resJson(ctx.response, 'error', 400)
             
         } else {
             // const sid = ctx.cookies.get('SID')
