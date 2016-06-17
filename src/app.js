@@ -14,7 +14,8 @@ import Util from './util'
 import './models'
 import Session from './libs/session'
 
-global.Util = Util
+Util.F = Util.filters
+global.U = global.Util = Util
 global.Session = Session
 
 

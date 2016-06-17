@@ -1,4 +1,6 @@
+import filters from './filters'
 export default {
+    filters,
     resJson: (response, data, statusCode)=> {
         if (data === 'error') statusCode = 400
         if (data === 'ok') statusCode = 200
