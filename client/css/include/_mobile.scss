@@ -61,3 +61,13 @@ html body .hide-hd {
         }
     }
 }
+
+#about-page {
+	section {
+		&.culture {
+			.column {
+				width: 100%;
+			}
+		}
+	}
+}

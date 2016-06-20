@@ -11,7 +11,7 @@
     
     
 </head>
-<body class="<%= typeof flag === 'undefined' ? '' : flag %>-page">
+<body class="<%= typeof flag === 'undefined' ? '' : flag %>-page" id="<%= typeof flag === 'undefined' ? '' : flag %>-page">
 <%= this.title %>
 <div class="ui top inverted vertical menu overlay sidebar">
     <% for (nav of navs) {%>
