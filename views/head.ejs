@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+    <title><%= title %> -- Suntchi</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/static/semantic/dist/semantic.min.css">
     <script src="/static/jquery-2.2.3.min.js"></script>
@@ -11,7 +11,8 @@
     
     
 </head>
-<body class="<%= typeof flag === 'undefined' ? '' : flag %>-page" id="<%= typeof flag === 'undefined' ? '' : flag %>-page">
+<% var pageFlag = typeof flag === 'undefined' ? '' : flag + '-page' %>
+<body class=<%= pageFlag %> id=<%= pageFlag %>>
 <%= this.title %>
 <div class="ui top inverted vertical menu overlay sidebar">
     <% for (nav of navs) {%>
@@ -19,9 +20,9 @@
     <% } %>
 </div>
 <div class="ui top menu horizon">
-    <div class="item">
+    <a class="item logo">
         <img src="/static/img/logo.png">
-    </div>
+    </a>
     <% for (nav of navs) {%>
         <a class="item" href=<%= U.F.toFullUrl(nav.url) %>><%= nav.name %></a>
     <% } %>

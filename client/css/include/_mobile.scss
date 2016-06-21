@@ -1,4 +1,4 @@
-.ui.menu.horizon > a.item{
+.ui.menu.horizon > a.item:not(.logo){
     display: none;
 }
 html body .hide-hd {

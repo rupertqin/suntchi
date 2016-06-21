@@ -45,7 +45,7 @@ $('.slider').slick({
     cssEase: 'linear'
 });
 
-$('section.user, section.services').accordion({
+$('section.user, section.services, section.culture').accordion({
     selector: {
         title: '.hd',
         trigger: '.hd',

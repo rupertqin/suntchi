@@ -8,7 +8,7 @@ import Info from '../models/info'
 
 export default {
     index: async function(ctx, next) {
-        const title = 'koa2 title'
+        const title = '首页'
         const navs = await Info.findOne({key: 'navigator'}) 
         await ctx.render('index', {
             title, flag: 'index',
@@ -16,7 +16,7 @@ export default {
         })
     }, 
     about: async function(ctx, next) {
-        const title = 'koa2 title'
+        const title = '关于我们'
         const navs = await Info.findOne({key: 'navigator'}) 
         await ctx.render('about', {
             title, flag: 'about',
