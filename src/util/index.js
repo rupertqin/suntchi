@@ -1,3 +1,4 @@
+import config from '../config'
 import filters from './filters'
 export default {
     filters,
@@ -6,5 +7,6 @@ export default {
         if (data === 'ok') statusCode = 200
         response.status = statusCode || 200
         response.body = data
-    }
+    },
+    getUploadedFileUrl: (path) => path.replace(config.rootPath + '/public', '')
 }

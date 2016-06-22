@@ -3,12 +3,15 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
+import path from 'path'
 export default {
   port: 3400,
   db: {
     host: 'localhost',
-    database: 'koa2_startkit',
+    database: 'suntchi',
     username: 'root',
     password: ''
-  }
+  },
+  rootPath: path.resolve(__dirname, '../../'),
+  uploadPath: path.resolve(__dirname, '../../public/upload')
 }

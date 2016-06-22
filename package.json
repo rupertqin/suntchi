@@ -15,6 +15,7 @@
     "browserSync": "browser-sync start --proxy 'localhost:3400' --no-open --reload-delay 300 --files 'src/' 'public/' 'views/' "
   },
   "dependencies": {
+    "async-busboy": "^0.1.0",
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "ejs": "^2.4.1",

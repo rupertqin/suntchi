@@ -24,7 +24,7 @@ let editorOptions = {
 }
 
 const imageUploadOpt = {
-    imageUploadURL: 'http://i.froala.com/upload',
+    imageUploadURL: '/api/upload',
 }
 
 Object.assign(editorOptions, imageUploadOpt)
