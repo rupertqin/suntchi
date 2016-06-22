@@ -46,6 +46,7 @@ public/static/semantic/dist/
 
 public/static/dist/
 .DS_Store
+public/upload/
 
 src/config/*
 !src/config/index.js
