@@ -9,10 +9,23 @@ import 'froala-editor/js/plugins/quote.min'
 import 'froala-editor/js/plugins/video.min'
 import 'froala-editor/js/plugins/code_view.min'
 import 'froala-editor/css/plugins/code_view.css'
+import 'froala-editor/css/plugins/char_counter.css'
+import 'froala-editor/css/plugins/colors.css'
+import 'froala-editor/css/plugins/draggable.css'
+import 'froala-editor/css/plugins/emoticons.css'
+import 'froala-editor/css/plugins/file.css'
+import 'froala-editor/css/plugins/fullscreen.css'
+import 'froala-editor/css/plugins/image.css'
+import 'froala-editor/css/plugins/image_manager.css'
+import 'froala-editor/css/plugins/line_breaker.css'
+import 'froala-editor/css/plugins/quick_insert.css'
+import 'froala-editor/css/plugins/table.css'
+import 'froala-editor/css/plugins/video.css'
 
 
 
 import 'froala-editor/css/froala_editor.min.css'
+import 'froala-editor/css/froala_style.css'
 import 'font-awesome/css/font-awesome.css'
 
 
