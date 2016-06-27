@@ -29,6 +29,7 @@
     "koa-static-plus": "^0.1.1",
     "koa-views": "^5.0.1",
     "lodash": "^4.11.1",
+    "moment": "^2.13.0",
     "mongoose": "^4.4.19",
     "semantic-ui": "^2.1.8"
   },

@@ -22,6 +22,7 @@ router.get('/login', adminCtrl.login)
 router.get('/logout', adminCtrl.logout)
 router.get('/dashboard', adminCtrl.dashboard)
 router.get('/add-article', adminCtrl.addArticle)
+router.get('/article/:id', adminCtrl.editArticle)
 router.get('/articles', adminCtrl.articles)
 router.get('/navigator', adminCtrl.navigator)
 

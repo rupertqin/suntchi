@@ -34,16 +34,21 @@ import 'font-awesome/css/font-awesome.css'
 
 if ( $('#add-article-page').length ) main()
 
-function main() {
-
-
+async function main() {
+    const isEdit = window.feData && window.feData.id
+    let articleData = {}
+    if (isEdit) {
+        let data = await request.get(location.origin + '/api/article/' + window.feData.id)
+        articleData = data.body
+    }
     
-    new Vue({
+
+    var app = new Vue({
         el: '.ui.form',
         data: {
-            title: '',
-            content: 'yuer',
-            category: 'about'
+            title: articleData.title || '',
+            content: articleData.content || '',
+            category:  articleData.category || ''
         },
         methods: {
             addItem: function() {
@@ -62,13 +67,21 @@ function main() {
             save: async function() {
                 const params = {
                     title: this.title,
-                    content: this.content,
+                    content: $('#editor').val(),
                     category: this.category
                 }
-                const res = await request.post(location.origin + '/api/article')
+                let url = location.origin + '/api/article'
+                let method = 'post'
+                let successTxt = 'add post is ok'
+                if (isEdit) {
+                    url += '/' + window.feData.id   
+                    method = 'put'
+                    successTxt = 'modified is ok'
+                }
+                const res = await request[method](url)
                                     .set('Content-Type', 'application/json')
                                     .send(params)
-                if (res.status === 200) alert(res.statusText)
+                if (res.status === 200) alert(successTxt)
             }
         }
             
@@ -91,6 +104,7 @@ function main() {
     Object.assign(editorOptions, imageUploadOpt)
 
     var froalaEditor = $('#editor').froalaEditor(editorOptions)
+
 
     froalaEditor
         .on('froalaEditor.image.beforeUpload', function (e, editor, images) {

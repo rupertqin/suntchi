@@ -6,6 +6,8 @@
 <link rel='stylesheet' href='/static/dist/admin.css' />
 <link rel='stylesheet' href='/static/stylesheets/style.css' />
 
+<%- include ../fe_data %>
+
 </head>
 <% var pageFlag = typeof flag === 'undefined' ? '' : flag + '-page' %>
 <body class="admin-page <%= pageFlag %>" id=<%= pageFlag %>>
@@ -24,7 +26,7 @@
             <div class="item">
                 <b>文章管理</b>
                 <div class="menu">
-                    <a href="/admin/article-list" class="item">文章列表</a>
+                    <a href="/admin/articles" class="item">文章列表</a>
                     <a href="/admin/add-article" class="active item">添加文章</a>
                 </div>
             </div>
