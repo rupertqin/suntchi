@@ -6,8 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: {
         app: ["./client/js/app.js"],
-        admin: ["./client/js/admin/index.js"],
-        navigator: ["./client/js/admin/navigator.js"]
+        admin: ["./client/js/admin/index.js"]
     },
     output: {
         path: __dirname + '/public/static/dist/',

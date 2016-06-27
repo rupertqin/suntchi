@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import request from 'superagent'
+import config from '../../../src/config'
 
-const hostname = 'http://192.168.0.101:3000'
-const url = hostname + '/api/info'
+const url = config.hostname + '/api/info'
 
 async function init() {
     var res = await request(url + '/navigator')
@@ -39,4 +39,4 @@ async function init() {
 }
 
 
-init()
+if ( $('#navigator-page').length ) init()

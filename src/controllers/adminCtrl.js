@@ -34,7 +34,20 @@ export default {
 
         var users = await User.find({})
         await ctx.render('admin/add_article', {
-            title, users, isLogin: ctx.req.session.isAdmin
+            title, users, 
+            flag: 'add-article',
+            isLogin: ctx.req.session.isAdmin
+        })
+    },
+
+    articles: async function(ctx, next) {
+        const title = 'articles'
+
+        var users = await User.find({})
+        await ctx.render('admin/articles', {
+            title, users, 
+            flag: 'articles',
+            isLogin: ctx.req.session.isAdmin
         })
     },
 
@@ -42,7 +55,10 @@ export default {
         const title = 'navigator'
         const users = await User.find({})
         await ctx.render('admin/navigator', {
-            title, users, isLogin: ctx.req.session.isAdmin
+            title, 
+            users,
+            flag: 'navigator', 
+            isLogin: ctx.req.session.isAdmin
         })
     }
     
