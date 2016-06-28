@@ -3,7 +3,7 @@
     <div class="ui middle grid">
          <div class=" twelve wide column">
             <div class="content">
-                <h2>导航管理</h2>
+                <h2>文章列表</h2>
                 <table class="ui celled table">
                     <thead>
                         <tr>
@@ -18,21 +18,23 @@
                         <tr>
                             <td><a href=<%= `/admin/article/${article._id}` %>><%= article.title %></a></td>
                             <td><%= article.category %></td>
-                            <td><%= article.update_at %></td>
+                            <td><%= U.moment(article.update_at).format('YYYY-MM-DD, h:mm:ss') %></td>
                             <td>
-                                <div class="ui right floated small red labeled icon button" @click="delItem($index)">
+                                <a href=<%= `/admin/article/${article._id}/del` %> 
+                                    class="ui right floated small red labeled icon button" 
+                                    @click="delItem($index)">
                                     <i class="remove icon"></i> Del
-                                </div>
+                                </a>
                             </td>
                         </tr>
                         <% } %>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="3">
-                                <div class="ui right floated small primary labeled icon button" @click="addItem">
+                            <th colspan="4">
+                                <a href="/admin/add-article" class="ui right floated small primary labeled icon button" @click="addItem">
                                     <i class="plus icon"></i> Add
-                                </div>
+                                </a>
                             </th>
                         </tr>
                     </tfoot>

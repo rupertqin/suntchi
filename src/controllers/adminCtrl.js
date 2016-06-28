@@ -55,6 +55,11 @@ export default {
         })
     },
 
+    delArticle: async function(ctx, next) {
+        const data = await Article.findOne({_id: ctx.params.id}).remove()
+        ctx.response.redirect(ctx.request.body.callback || '/admin/articles')
+    },
+
     articles: async function(ctx, next) {
         const title = 'articles'
 

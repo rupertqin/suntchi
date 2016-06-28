@@ -1,5 +1,7 @@
 import config from '../config'
 import filters from './filters'
+import moment from 'moment'
+
 export default {
     filters,
     resJson: (response, data, statusCode)=> {
@@ -8,5 +10,6 @@ export default {
         response.status = statusCode || 200
         response.body = data
     },
-    getUploadedFileUrl: (path) => path.replace(config.rootPath + '/public', '')
+    getUploadedFileUrl: (path) => path.replace(config.rootPath + '/public', ''),
+    moment: moment
 }

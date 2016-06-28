@@ -16,6 +16,14 @@
         <div class="four wide column">
             <div class="content">
                 <button class="ui button primary" type="submit">发布文章</button>
+				<% if (typeof fe !== 'undefined' && fe.id){ %>
+					<% 
+						var funStr = `if (window.confirm('do you want to delete this post?')){
+							window.location.href='/admin/article/${fe.id}/del'
+						}`
+					%>
+					<a onclick="<%- funStr %>" class="ui button primary">删除</a>
+				<% } %>
                 <div class="field">
                     <label>分类</label>
                     <div class="grouped fields">

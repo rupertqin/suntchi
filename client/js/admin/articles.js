@@ -2,53 +2,15 @@ import Vue from 'vue'
 import request from 'superagent'
 import config from '../../../src/config'
 
-import 'semantic-ui/dist/semantic'
-import 'froala-editor/js/froala_editor.min'
-import 'froala-editor/js/plugins/align.min'
-import 'froala-editor/js/plugins/file.min'
-import 'froala-editor/js/plugins/image.min'
-import 'froala-editor/js/plugins/save.min'
-import 'froala-editor/js/plugins/url.min'
-import 'froala-editor/js/plugins/quote.min'
-import 'froala-editor/js/plugins/video.min'
-import 'froala-editor/js/plugins/code_view.min'
-import 'froala-editor/css/plugins/code_view.css'
-import 'froala-editor/css/plugins/char_counter.css'
-import 'froala-editor/css/plugins/colors.css'
-import 'froala-editor/css/plugins/draggable.css'
-import 'froala-editor/css/plugins/emoticons.css'
-import 'froala-editor/css/plugins/file.css'
-import 'froala-editor/css/plugins/fullscreen.css'
-import 'froala-editor/css/plugins/image.css'
-import 'froala-editor/css/plugins/image_manager.css'
-import 'froala-editor/css/plugins/line_breaker.css'
-import 'froala-editor/css/plugins/quick_insert.css'
-import 'froala-editor/css/plugins/table.css'
-import 'froala-editor/css/plugins/video.css'
-
-
-
-import 'froala-editor/css/froala_editor.min.css'
-import 'froala-editor/css/froala_style.css'
-import 'font-awesome/css/font-awesome.css'
-
-if ( $('#add-article-page').length ) main()
+if ( $('#articles-page').length ) main()
 
 async function main() {
-    const isEdit = window.feData && window.feData.id
-    let articleData = {}
-    if (isEdit) {
-        let data = await request.get(location.origin + '/api/article/' + window.feData.id)
-        articleData = data.body
-    }
-    
-
     var app = new Vue({
-        el: '.ui.form',
+        el: '.ui.',
         data: {
             title: articleData.title || '',
             content: articleData.content || '',
-            category:  articleData.category || 'about'
+            category:  articleData.category || ''
         },
         methods: {
             addItem: function() {
@@ -80,14 +42,8 @@ async function main() {
                 }
                 const res = await request[method](url)
                                     .set('Content-Type', 'application/json')
-                                    .send(params);
-
-                if (isEdit) {
-                    if (res.status === 200) alert(successTxt)
-
-                } else {
-                    location.href = `/admin/article/${res.}`
-                }
+                                    .send(params)
+                if (res.status === 200) alert(successTxt)
             }
         }
             
