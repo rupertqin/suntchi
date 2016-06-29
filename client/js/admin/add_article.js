@@ -86,7 +86,7 @@ async function main() {
                     if (res.status === 200) alert(successTxt)
 
                 } else {
-                    location.href = `/admin/article/${res.}`
+                    location.href = `/admin/article/${res}`
                 }
             }
         }
@@ -99,7 +99,12 @@ async function main() {
     let editorOptions = {
         heightMax: 600,
         heightMin: 300,
-        toolbarButtons: ['fullscreen', 'italic', 'bold',  'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
+        toolbarButtons: ['fullscreen', 'italic', 'bold',  'underline', 'strikeThrough', 
+            'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 
+            'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 
+            'formatUL', 'outdent', 'indent', 'quote', 'insertHR', '-', 'insertLink', 
+            'insertImage', 'insertVideo', 'insertFile', 'insertTable', 'undo', 'redo', 
+            'clearFormatting', 'selectAll', 'html']
         ,toolbarInline: false,
     }
 

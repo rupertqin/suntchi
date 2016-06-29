@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import request from 'superagent'
 import config from '../../../src/config'
+import { CATEGORIES } from '../../../src/data'
 
 if ( $('#articles-page').length ) main()
 
 async function main() {
     var app = new Vue({
-        el: '.ui.',
+        el: '.ui.form',
         data: {
-            title: articleData.title || '',
-            content: articleData.content || '',
-            category:  articleData.category || ''
+            category: window.feData.category || '',
+            CATEGORIES: CATEGORIES  
         },
         methods: {
             addItem: function() {
@@ -44,6 +44,11 @@ async function main() {
                                     .set('Content-Type', 'application/json')
                                     .send(params)
                 if (res.status === 200) alert(successTxt)
+            }
+        },
+        watch: {
+            'category': (val, oldVal) => {
+                location.href = `/admin/articles?category=${val}`
             }
         }
             
@@ -107,5 +112,8 @@ async function main() {
         });
 
 
-    $('.ui.radio.checkbox') .checkbox()
+    $('.ui.radio.checkbox').checkbox()
+    $('select.dropdown').dropdown({
+        placeholder: false
+    })
 }

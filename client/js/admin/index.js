@@ -1,4 +1,5 @@
 import './add_article'
+import './articles'
 import './dashboard'
 import './login'
 import './navigator'

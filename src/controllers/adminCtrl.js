@@ -61,13 +61,16 @@ export default {
     },
 
     articles: async function(ctx, next) {
-        const title = 'articles'
-
-        var articles = await Article.find({})
+        const category = ctx.request.query.category
+        const articles = await Article.find({category: new RegExp(category)})
         await ctx.render('admin/articles', {
-            title, articles, 
+            title: 'articles', 
+            articles, 
             flag: 'articles',
-            isLogin: ctx.req.session.isAdmin
+            isLogin: ctx.req.session.isAdmin,
+            fe: {
+                category: category
+            }
         })
     },
 

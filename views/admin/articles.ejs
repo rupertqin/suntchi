@@ -44,7 +44,13 @@
         </div>
         <div class="four wide column">
             <div class="content">
-                <button class="ui button primary" type="submit">发布</button>
+                <div class="field">
+                    <label>类别</label>
+                    <select class="ui search dropdown" v-model='category' name="category">
+                        <option value="">All</option>
+                        <option v-for='cat in CATEGORIES' value="{{cat}}">{{cat}}</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
